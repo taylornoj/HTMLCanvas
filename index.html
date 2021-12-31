@@ -33,9 +33,21 @@
     let lastX = 0;
     let lastY = 0;
 
+    // take in an event, will be called when we move mouse ontop of canvas
     function draw(e) {
-      
+      // stop function from running when they are not moused down
+      if(!isDrawing) return; 
     }
+
+    // mouse move event on canvas
+    canvas.addEventListener('mousemove', draw);
+    // when mouse is down, we are drawing:
+    canvas.addEventListener('mousedown', () => isDrawing = true);
+    // when mouse is up, we are not drawing:
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    // when mouse leaves the browser, drawing stops:
+    canvas.addEventListener('mouseout', () => isDrawing = false);
+
 
 
   </script>
