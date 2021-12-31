@@ -37,12 +37,27 @@
     function draw(e) {
       // stop function from running when they are not moused down
       if(!isDrawing) return; 
+      // start a path
+      ctx.beginPath();
+      // start with X, Y 
+      ctx.moveTo(lastX, lastY);
+      // and go to X, Y -- offset is coming from event we saw in console
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+      // when draw function is done, we want to update lastX and lastY variables 
+      // to where they last were:
+      [lastX, lastY] = [e.offsetX, e.offsetY];
     }
 
+    // when mouse is down, we are drawing & we are updating X & Y and pass the event
+    // as soon as person clicks mouse down, we are updating lastX and lastY which will
+    // put us where we want to go, rather than starting at 0, 0:
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
     // mouse move event on canvas
     canvas.addEventListener('mousemove', draw);
-    // when mouse is down, we are drawing:
-    canvas.addEventListener('mousedown', () => isDrawing = true);
     // when mouse is up, we are not drawing:
     canvas.addEventListener('mouseup', () => isDrawing = false);
     // when mouse leaves the browser, drawing stops:
