@@ -9,6 +9,14 @@
 <body>
   <canvas id="draw" width="800" height="800"></canvas>
   <script>
+    // grab the canvas
+    const canvas = document.querySelector('#draw');
+    // the context - can be 2d or 3d (video games, rendering)
+    const ctx = canvas.getContext('2d');
+    // size up canvas to be size of the window
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
   </script>
 
   <style>
