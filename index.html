@@ -25,6 +25,7 @@
     ctx.lineJoin = 'round';
     // end of a line should be rounded
     ctx.lineCap = 'round';
+    ctx.lineWidth = 100;
 
     // dummy variables:
     // only drawing when mouse is down
@@ -32,11 +33,16 @@
     // line needs a start and a stop
     let lastX = 0;
     let lastY = 0;
+    // adding colours to drawing:
+    let hue = 0;
+
 
     // take in an event, will be called when we move mouse ontop of canvas
     function draw(e) {
       // stop function from running when they are not moused down
       if(!isDrawing) return; 
+      // setting hsl - 100% sat, 50% lightness:
+      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
       // start a path
       ctx.beginPath();
       // start with X, Y 
@@ -47,6 +53,8 @@
       // when draw function is done, we want to update lastX and lastY variables 
       // to where they last were:
       [lastX, lastY] = [e.offsetX, e.offsetY];
+      // incrementing hue to change colour on drag
+      hue++;
     }
 
     // when mouse is down, we are drawing & we are updating X & Y and pass the event
