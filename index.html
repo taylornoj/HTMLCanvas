@@ -35,6 +35,8 @@
     let lastY = 0;
     // adding colours to drawing:
     let hue = 0;
+    // building up for the width
+    let direction = true;
 
 
     // take in an event, will be called when we move mouse ontop of canvas
@@ -57,6 +59,18 @@
       hue++;
       if(hue >= 360) {
         hue = 0;
+      }
+      // once linewidth hits either number, flip the direction
+      if(ctx.lineWidth >= 100 || ctx.lineWidth <= 10) {
+        direction = !direction;
+      }
+      // if line direction is true:
+      if(direction) {
+        // line width goes up
+        ctx.lineWidth++;
+      } else {
+        // or line width goes down
+        ctx.lineWidth--;
       }
     }
 
