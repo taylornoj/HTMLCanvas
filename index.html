@@ -55,6 +55,9 @@
       [lastX, lastY] = [e.offsetX, e.offsetY];
       // incrementing hue to change colour on drag
       hue++;
+      if(hue >= 360) {
+        hue = 0;
+      }
     }
 
     // when mouse is down, we are drawing & we are updating X & Y and pass the event
