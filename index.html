@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 Canvas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <button onclick='resetCanvas()'>Reset</button>
+  <button class="button-62" role="button" onclick='resetCanvas()'>Clear your Canvas</button>
   <canvas id="draw" width="800" height="800"></canvas>
   <script>
     // grab the canvas
@@ -90,7 +91,7 @@
     // when mouse leaves the browser, drawing stops:
     canvas.addEventListener('mouseout', () => isDrawing = false);
     
-    
+    // reset and clear the canvas
     const resetCanvas = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   </script>
