@@ -6,6 +6,8 @@ When the mouse is clicked down, it is acting as a pen. When the mouse is up or g
 
 As a stretch feature I added a button to "Clear your Canvas" which resets the canvas to start again!
 
+![gif of demo](https://github.com/taylornoj/HTMLCanvas/blob/master/docs/23FCCA82-F6E1-4C66-B992-90D37B8684E5.gif?raw=true)
+
 ## What I learned:
 - fundamentals of canvas
 - base settings like lineJoin, lineCap and lineWidth
